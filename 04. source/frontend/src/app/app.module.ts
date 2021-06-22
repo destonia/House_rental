@@ -7,11 +7,19 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 
+import { HouseUpdateComponent } from './house/house-update/house-update.component';
+import { DetailComponent } from './house/detail/detail.component';
+import { CreateComponent } from './category/create/create.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HouseUpdateComponent,
+    DetailComponent,
+    CreateComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
