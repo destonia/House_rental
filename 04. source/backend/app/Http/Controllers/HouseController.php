@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 
 class HouseController extends Controller
 {
-    public function update(HouseRequest $request){
-        dd('cho');
+
+    public function update(Request $request){
+
+        return response()->json('jkdskjahsdasd');
     }
 }

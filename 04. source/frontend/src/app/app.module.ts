@@ -7,6 +7,8 @@ import { HouseUpdateComponent } from './house/house-update/house-update.componen
 import { DetailComponent } from './house/detail/detail.component';
 import { CreateComponent } from './category/create/create.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ListComponent } from './category/list/list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,10 +17,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     DetailComponent,
     CreateComponent,
     DashboardComponent,
+    ListComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
