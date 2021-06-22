@@ -23,3 +23,4 @@ use App\Http\Requests\HouseRequest;
 
 Route::get('/house/update',[HouseController::class,'update']);
 Route::get('/categories',[CategoryController::class,'index']);
+Route::post('/categories/create',[CategoryController::class,'create']);

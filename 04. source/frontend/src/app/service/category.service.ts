@@ -32,5 +32,8 @@ export class CategoryService {
   getAll(): Observable<Category[]>{
     return this.http.get<Category[]>(`${environment.apiUrl}/categories`)
   }
+  save(category: Category[]): Observable<Category[]>{
+    return this.http.post<Category[]>(`${environment.apiUrl}/categories/create`,category)
+  }
 }
 
