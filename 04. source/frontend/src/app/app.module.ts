@@ -10,6 +10,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ListComponent } from './category/list/list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EditComponent } from './category/edit/edit.component';
+import { DeleteComponent } from './category/delete/delete.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +21,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     CreateComponent,
     DashboardComponent,
     ListComponent,
+    EditComponent,
+    DeleteComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

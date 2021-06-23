@@ -24,3 +24,6 @@ use App\Http\Requests\HouseRequest;
 Route::get('/house/update',[HouseController::class,'update']);
 Route::get('/categories',[CategoryController::class,'index']);
 Route::post('/categories/create',[CategoryController::class,'create']);
+Route::get('/categories/{id}/edit',[CategoryController::class,'findById']);
+Route::put('/categories/{id}/update',[CategoryController::class,'update']);
+Route::delete('/categories/{id}/delete',[CategoryController::class,'delete']);

@@ -4,13 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | DataTables</title>
+    <title>AdminLTE 3 | General Form Elements</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <!-- DataTables -->
-
     <!-- Theme style -->
 </head>
 
@@ -44,11 +42,11 @@
                                 <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
                                 <div class="input-group-append">
                                     <button class="btn btn-navbar" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
+                                        <i class="fas fa-search"></i>
+                                    </button>
                                     <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                  <i class="fas fa-times"></i>
-                </button>
+                                        <i class="fas fa-times"></i>
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -101,7 +99,8 @@
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Nora Silvester
-                                        <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                                        <span class="float-right text-sm text-warning"><i
+                                                class="fas fa-star"></i></span>
                                     </h3>
                                     <p class="text-sm">The subject goes here</p>
                                     <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
@@ -180,8 +179,8 @@
                         <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
                         <div class="input-group-append">
                             <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
+                                <i class="fas fa-search fa-fw"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -383,8 +382,8 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
+                        <li class="nav-item menu-open">
+                            <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-edit"></i>
                                 <p>
                                     Forms
@@ -393,7 +392,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../forms/general.html" class="nav-link">
+                                    <a href="../forms/general.html" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>General Elements</p>
                                     </a>
@@ -418,8 +417,8 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item menu-open">
-                            <a href="#" class="nav-link active">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-table"></i>
                                 <p>
                                     Tables
@@ -434,7 +433,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../tables/data.html" class="nav-link active">
+                                    <a href="../tables/data.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>DataTables</p>
                                     </a>
@@ -836,12 +835,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Categories</h1>
+                            <h1>General Form</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Categories</li>
+                                <li class="breadcrumb-item active">General Form</li>
                             </ol>
                         </div>
                     </div>
@@ -853,47 +852,59 @@
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-12">
-                            <div class="card">
+                        <!-- left column -->
+                        <div class="col-md-6">
+                            <!-- general form elements -->
+                            <div class="card card-primary">
                                 <div class="card-header">
-                                    <a routerLink='create'><button class="btn btn-info">Create new Category</button></a>
+                                    <h3 class="card-title">Edit Category</h3>
                                 </div>
                                 <!-- /.card-header -->
-                                <div class="card-body">
-                                    <table id="example2" class="table table-bordered table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Name</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr *ngFor="let category of categories;index as i">
-                                                <td>{{i+1}}</td>
-                                                <td>{{category.name}}</td>
-                                                <td>
-                                                    <a routerLink="{{category.id}}/edit"><button class="btn btn-info" style="margin-right: 20px;"><i class="fas fa-pencil-alt" aria-hidden="true"></i></button></a>
-                                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger" (click)="get(category.id)">
-                                                        <i class="fa fa-trash" aria-hidden="true"></i>
-                                                      </button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Name</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div>
-                                <!-- /.card-body -->
+                                <!-- form start -->
+                                <form [formGroup]="categoryForm" (ngSubmit)="update(id)">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label>Name</label>
+                                            <input type="text" name="name" formControlName="name" class="form-control"> </div>
+                                    </div>
+                                    <!-- /.card-body -->
+
+                                    <div class="card-footer">
+                                        <button class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
                             </div>
                             <!-- /.card -->
+
+                            <!-- general form elements -->
+
+                            <!-- /.card -->
+
+                            <!-- Input addon -->
+
+                            <!-- /.card -->
+                            <!-- Horizontal Form -->
+
+                            <!-- /.card -->
+
                         </div>
-                        <!-- /.col -->
+                        <!--/.col (left) -->
+                        <!-- right column -->
+                        <div class="col-md-6">
+                            <!-- Form Element sizes -->
+
+                            <!-- /.card -->
+
+                            <!-- /.card -->
+
+                            <!-- general form elements disabled -->
+
+                            <!-- /.card -->
+                            <!-- general form elements disabled -->
+
+                            <!-- /.card -->
+                        </div>
+                        <!--/.col (right) -->
                     </div>
                     <!-- /.row -->
                 </div>
@@ -901,30 +912,6 @@
             </section>
             <!-- /.content -->
         </div>
-
-        <!-- /.modal -->
-        <div class="modal fade" id="modal-danger">
-            <div class="modal-dialog">
-                <div class="modal-content bg-danger">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Delete Category: {{deleteName}}</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-                    </div>
-                    <div class="modal-body">
-                        <h6>Are you sure? Deleted categories can not be restored</h6>
-                    </div>
-                    <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-outline-light" (click)="delete(deleteId)">Delete</button>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
         <!-- /.content-wrapper -->
         <footer class="main-footer">
             <div class="float-right d-none d-sm-block">
@@ -943,28 +930,13 @@
 
     <!-- jQuery -->
     <!-- Bootstrap 4 -->
-    <!-- DataTables  & Plugins -->
-
+    <!-- bs-custom-file-input -->
     <!-- AdminLTE App -->
     <!-- AdminLTE for demo purposes -->
     <!-- Page specific script -->
     <script>
         $(function() {
-            $("#example1").DataTable({
-                "responsive": true,
-                "lengthChange": false,
-                "autoWidth": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-            $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-                "responsive": true,
-            });
+            bsCustomFileInput.init();
         });
     </script>
 </body>

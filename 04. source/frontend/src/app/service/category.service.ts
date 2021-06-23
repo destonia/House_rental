@@ -32,8 +32,21 @@ export class CategoryService {
   getAll(): Observable<Category[]>{
     return this.http.get<Category[]>(`${environment.apiUrl}/categories`)
   }
+
   save(category: Category[]): Observable<Category[]>{
     return this.http.post<Category[]>(`${environment.apiUrl}/categories/create`,category)
+  }
+
+  findById(id: any): Observable<any>{
+    return this.http.get(`${environment.apiUrl}/categories/${id}/edit`);
+  }
+
+  update(id: number,category: Category): Observable<Category[]>{
+    return this.http.put<Category[]>(`${environment.apiUrl}/categories/${id}/update`,category);
+  }
+
+  delete(id:any): Observable<Category[]>{
+    return this.http.delete<Category[]>(`${environment.apiUrl}/categories/${id}/delete`)
   }
 }
 
